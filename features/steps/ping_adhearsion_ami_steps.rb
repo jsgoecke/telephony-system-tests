@@ -7,5 +7,5 @@ When /^a test process connects, and transmits a ping to Adhearsion$/ do
 end
 
 Then /^a pong of that ping should be received by the test process back from Adhearsion$/ do
-  @result.should == 'blue'
+  @result.should == "Response: Pong"
 end
