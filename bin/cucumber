@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+$: << File.dirname(__FILE__)
+
+begin 
+  require 'common'
+rescue LoadError
+  require 'bin/common'
+end
+
+require 'cucumber/cli/main'
+Cucumber::Cli::Main.execute(ARGV)

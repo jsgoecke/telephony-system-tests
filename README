@@ -1,0 +1,52 @@
+telephony-sys-tests
+===================
+
+Utilizes Cucumber (http://cukes.info) and Cucumber-Nagios (http://github.com/auxesis/cucumber-nagios/) to provide telephony systems testing for human readable feedback and feedback for the Nagios monitoring platform.
+
+
+Requirements 
+============
+
+Ruby 1.8.5+ (although 1.8.7+ is recommended)
+
+
+Getting the project
+===================
+
+You may either download the Zip/Tar file or use Git to clone the project:
+
+    $ git clone git://github.com/jsgoecke/telephony-sys-tests.git
+
+
+Tests Available
+===============
+
+- ping_asterisk_manager.feature
+
+  Logs in into the Asterisk (http://asterisk.org) Manager Interface, sends a ping and inspects the result for a pong.
+
+- ping_adhearsion_ami.feature
+
+  Connects to Adhearsion (http://adhearsion.com) via DRb, sends a ping to the Asterisk Manager Interface via Adhearsion and inspects the result for a pong.
+
+
+Running
+=======
+
+Invoke the Cucumber feature with the cucumber-nagios script: 
+
+    bin/cucumber-nagios telephony-sys-tests/features/ping_asterisk_manager.feature
+
+cucumber-nagios can be run from anywhere: 
+
+    /path/to/bin/cucumber-nagios /path/to/telephony-sys-tests/features/ping_asterisk_manager.feature
+
+It should return a standard Nagios-formatted response string: 
+
+    Critical: 0, Warning: 0, 3 okay | passed=3, failed=0, total=3
+
+Steps that fail will show up in the "Critical" total, and steps that pass 
+show up in the "okay" total. 
+
+The value printed at the end is in Nagios's Performance Data format, so it
+can be graphed and the like.

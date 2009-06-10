@@ -1,0 +1,11 @@
+#Asterisk Configuration
+asterisk:
+    #Asterisk Manager Interface login details
+    username: admin
+    secret: passwd
+    host: localhost
+    port: 5038
+    
+adhearsion:
+    druby: druby://localhost:9050
+    
